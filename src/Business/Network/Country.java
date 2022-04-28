@@ -1,17 +1,21 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Business.Network;
+
 import java.util.ArrayList;
 
 /**
  *
- * @author Ching-Fong Chen
+ * @author Vardhana Bhatt
  */
 public class Country extends Network{
     private ArrayList<State> stateList;
-    private static int count;
-
+    
     public Country() {
         super(NetworkType.Country.getValue());
-        Country country = new ArrayList<>();
         stateList = new ArrayList<>();
     }
 
@@ -22,3 +26,14 @@ public class Country extends Network{
     public void setStateList(ArrayList<State> stateList) {
         this.stateList = stateList;
     }
+    
+    public State createState(){
+        State state = new State();
+        stateList.add(state);
+        return state;
+    }
+    
+    public void removeState(State state){
+        stateList.remove(state);
+    }
+}
